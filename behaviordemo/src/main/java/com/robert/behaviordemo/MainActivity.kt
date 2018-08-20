@@ -3,10 +3,12 @@ package com.robert.behaviordemo
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.FrameLayout
+import com.robert.behaviordemo.adapter.MyRvAdapter
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,8 +19,8 @@ class MainActivity : AppCompatActivity() {
     private val mFlCover: FrameLayout by bindView(R.id.fl_cover)
 
     private val mTabLayout: TabLayout by bindView(R.id.tab)
-//    private val mRvHistory by bindView<RecyclerView>(R.id.rv_history)
-//    private val mRvPlay by bindView<RecyclerView>(R.id.rv_play)
+    private val mRvHistory by bindView<RecyclerView>(R.id.rv_history)
+    private val mRvPlay by bindView<RecyclerView>(R.id.rv_play)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,9 +31,9 @@ class MainActivity : AppCompatActivity() {
             newTab.text = it
             mTabLayout.addTab(newTab)
         }
-//        mRvHistory.adapter = MyRvAdapter(this)
-//        mRvPlay.adapter = MyRvAdapter(this)
-//        mRvPlay.isNestedScrollingEnabled = false
+        mRvHistory.adapter = MyRvAdapter(this)
+        mRvPlay.adapter = MyRvAdapter(this)
+        mRvPlay.isNestedScrollingEnabled = false
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

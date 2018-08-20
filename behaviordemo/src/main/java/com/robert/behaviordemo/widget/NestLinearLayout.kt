@@ -50,7 +50,7 @@ class NestLinearLayout @JvmOverloads constructor(context: Context, attrs: Attrib
                 mLastTouchY = (event.y + 0.5f).toInt()
                 val nestedScrollAxis = ViewCompat.SCROLL_AXIS_NONE or ViewCompat.SCROLL_AXIS_VERTICAL
                 startNestedScroll(nestedScrollAxis, ViewCompat.TYPE_TOUCH)
-
+                return true
             }
             MotionEvent.ACTION_MOVE -> {
                 val x = (event.x + 0.5f).toInt()

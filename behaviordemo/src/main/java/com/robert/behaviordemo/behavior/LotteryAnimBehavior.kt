@@ -9,8 +9,7 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.View
 import com.robert.behaviordemo.R
-
-
+import com.robert.behaviordemo.widget.NestLinearLayout
 
 
 class LotteryAnimBehavior @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null)
@@ -36,6 +35,21 @@ class LotteryAnimBehavior @JvmOverloads constructor(context: Context, attrs: Att
             val maxTranslationY = getMaxTranslationY(child)
             Log.d(TAG, "当前偏移--->" + child.translationY + ", MAX ---> " + maxTranslationY)
             if (down && !up && dy < 0) {
+                //向下滑
+                val translationY = child.translationY
+                if (translationY - dy <= 0) {
+                    child.translationY = translationY - dy
+                } else {
+                    child.translationY = 0f
+                }
+            }
+        }
+
+        if (target is NestLinearLayout) {
+            Log.d(TAG, "方向 ---> dy:$dy")
+            val maxTranslationY = getMaxTranslationY(child)
+            Log.d(TAG, "当前偏移--->" + child.translationY + ", MAX ---> " + maxTranslationY)
+            if (dy < 0) {
                 //向下滑
                 val translationY = child.translationY
                 if (translationY - dy <= 0) {

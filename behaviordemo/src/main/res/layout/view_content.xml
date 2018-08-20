@@ -39,6 +39,7 @@
             android:id="@+id/ll_show_history"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@android:color/holo_green_light"
             android:padding="10dp">
 
             <TextView
@@ -53,22 +54,22 @@
                 android:text="期号: 101010101010"/>
         </LinearLayout>
 
-        <!--<android.support.v7.widget.RecyclerView-->
-            <!--android:id="@+id/rv_history"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="200dp"-->
-            <!--android:layout_marginTop="1dp"-->
-            <!--android:background="@color/colorPrimary"-->
-            <!--app:layoutManager="android.support.v7.widget.LinearLayoutManager"/>-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_history"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="1dp"
+            android:background="@color/colorPrimary"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"/>
 
-        <!--<android.support.v7.widget.RecyclerView-->
-            <!--android:id="@+id/rv_play"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="0dp"-->
-            <!--android:layout_marginTop="5dp"-->
-            <!--android:layout_weight="1"-->
-            <!--android:background="@color/colorPrimaryDark"-->
-            <!--app:layoutManager="android.support.v7.widget.LinearLayoutManager"/>-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_play"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryDark"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"/>
     </com.robert.behaviordemo.widget.NestLinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>
