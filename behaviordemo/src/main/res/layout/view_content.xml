@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fl_anim_container"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@color/colorAccent"
+        app:layout_behavior="com.robert.behaviordemo.behavior.LotteryAnimBehavior">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="动画布局"
+            android:textColor="@android:color/white"
+            android:textSize="40dp"/>
+    </FrameLayout>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"/>
+
+    <com.robert.behaviordemo.widget.NestLinearLayout
+        android:id="@+id/ll_history_play"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:layout_behavior="com.robert.behaviordemo.behavior.LotteryContentBehavior">
+
+        <LinearLayout
+            android:id="@+id/ll_show_history"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="期号: 101010101010"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="期号: 101010101010"/>
+        </LinearLayout>
+
+        <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:id="@+id/rv_history"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="200dp"-->
+            <!--android:layout_marginTop="1dp"-->
+            <!--android:background="@color/colorPrimary"-->
+            <!--app:layoutManager="android.support.v7.widget.LinearLayoutManager"/>-->
+
+        <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:id="@+id/rv_play"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@color/colorPrimaryDark"-->
+            <!--app:layoutManager="android.support.v7.widget.LinearLayoutManager"/>-->
+    </com.robert.behaviordemo.widget.NestLinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

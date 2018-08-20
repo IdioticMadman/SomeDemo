@@ -1,0 +1,6 @@
+//include ':bitmapdemo', ':fragmenttabhostdemo', ':tablayoutdemo', ':toucheventdemo'
+include ':behaviordemo'
+//include ':app', ':customview', ':mylibrary', ':imageclick',
+//include ':bluetoothLeGatt'
+//include ':aidlserver', ':aidlclient', ':dagger2', ':animator', ':pullrefreshview'
+//include 'app'
