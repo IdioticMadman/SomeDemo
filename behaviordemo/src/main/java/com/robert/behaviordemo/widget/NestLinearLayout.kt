@@ -57,7 +57,10 @@ class NestLinearLayout @JvmOverloads constructor(context: Context, attrs: Attrib
                 val y = (event.y + 0.5f).toInt()
                 val dx = mLastTouchX - x
                 val dy = mLastTouchY - y
+                Log.e(TAG, "onTouchEvent ---> dx:$dx ,dy:$dy")
                 dispatchNestedPreScroll(dx, dy, mScrollConsumed, mScrollOffset, ViewCompat.TYPE_TOUCH)
+                mLastTouchX = x
+                mLastTouchY = y
             }
             MotionEvent.ACTION_UP -> {
                 stopNestedScroll(ViewCompat.TYPE_TOUCH)

@@ -4,7 +4,6 @@ import android.content.Context
 import android.graphics.Rect
 import android.support.design.widget.CoordinatorLayout
 import android.support.v4.view.ViewCompat
-import android.support.v7.widget.RecyclerView
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
@@ -28,34 +27,41 @@ class LotteryAnimBehavior @JvmOverloads constructor(context: Context, attrs: Att
 
     override fun onNestedPreScroll(coordinatorLayout: CoordinatorLayout, child: View, target: View, dx: Int, dy: Int, consumed: IntArray, type: Int) {
         Log.d(TAG, "onNestedPreScroll : child ---> $child,\n target ---> $target,\n")
-        if (target is RecyclerView) {
-            val down = target.canScrollVertically(1)//是否可以向上推
-            val up = target.canScrollVertically(-1)//是否可以向下拉
-            Log.d(TAG, "方向 ---> down: $down,up :$up, dy:$dy")
+//        if (target is RecyclerView) {
+//            val down = target.canScrollVertically(1)//是否可以向上推
+//            val up = target.canScrollVertically(-1)//是否可以向下拉
+//            Log.d(TAG, "方向 ---> down: $down,up :$up, dy:$dy")
+//            val maxTranslationY = getMaxTranslationY(child)
+//            Log.d(TAG, "当前偏移--->" + child.translationY + ", MAX ---> " + maxTranslationY)
+//            if (down && !up && dy < 0) {
+//                //向下滑
+//                val translationY = child.translationY
+//                if (translationY - dy <= 0) {
+//                    child.translationY = translationY - dy
+//                } else {
+//                    child.translationY = 0f
+//                }
+//            }
+//        }
+
+        if (target is NestLinearLayout) {
+            Log.d(TAG, "方向 ---> dy:$dy")
             val maxTranslationY = getMaxTranslationY(child)
-            Log.d(TAG, "当前偏移--->" + child.translationY + ", MAX ---> " + maxTranslationY)
-            if (down && !up && dy < 0) {
+            val translationY = child.translationY
+            Log.d(TAG, "当前偏移--->$translationY, MAX ---> $maxTranslationY")
+            if (dy < 0) {
                 //向下滑
-                val translationY = child.translationY
                 if (translationY - dy <= 0) {
                     child.translationY = translationY - dy
                 } else {
                     child.translationY = 0f
                 }
             }
-        }
-
-        if (target is NestLinearLayout) {
-            Log.d(TAG, "方向 ---> dy:$dy")
-            val maxTranslationY = getMaxTranslationY(child)
-            Log.d(TAG, "当前偏移--->" + child.translationY + ", MAX ---> " + maxTranslationY)
-            if (dy < 0) {
-                //向下滑
-                val translationY = child.translationY
-                if (translationY - dy <= 0) {
+            if (dy > 0) {
+                if (-translationY < maxTranslationY) {
                     child.translationY = translationY - dy
                 } else {
-                    child.translationY = 0f
+                    child.translationY = -maxTranslationY.toFloat()
                 }
             }
         }
